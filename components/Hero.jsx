@@ -10,7 +10,7 @@ const fadeUp = {
 const lines = [
   { text: 'Maheen Ghouri',  color: 'text-tx-primary'   },
   { text: 'Agentic AI',     color: 'text-accent-purple' },
-  { text: 'Full Stack Dev', color: 'text-tx-primary'   },
+  { text: 'Full Stack Developer', color: 'text-tx-primary'   },
 ]
 
 const subtitleWords = [
