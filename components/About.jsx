@@ -3,6 +3,10 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import TypewriterLabel from './TypewriterLabel'
 
+const bioText = `I am Maheen Ghouri, an Agentic AI Full Stack Developer with a passion for building intelligent, autonomous web applications. I work as a developer and freelancer, specializing in modern web solutions powered by cutting-edge AI technologies. I combine strong full-stack development skills with deep expertise in AI agent frameworks and APIs to deliver smart, scalable digital products. I build Personal AI Employees — custom AI agents designed to automate tasks, handle workflows, and work autonomously on behalf of individuals and businesses. I also develop intelligent Chatbots for websites — custom conversational AI assistants that engage users, answer queries, and enhance the overall user experience — making businesses smarter and more responsive 24/7.`
+
+const bioWords = bioText.split(' ')
+
 const stats = [
   { label: 'projects done', value: '3+',       numPart: 3, suffix: '+', color: 'text-accent-purple' },
   { label: 'status',        value: 'active',    numPart: null,           color: 'text-accent-green'  },
@@ -38,30 +42,26 @@ export default function About() {
     <div ref={ref} className="py-20 px-6 border-t border-border-default">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 
-        {/* Bio — slides in from left */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-        >
+        {/* Bio — word by word typewriter */}
+        <div>
           <TypewriterLabel
             text="// about me"
             className="text-[10px] text-tx-faint tracking-[3px] uppercase font-mono mb-3"
           />
           <p className="text-tx-muted text-sm leading-loose font-mono">
-            I am Maheen Ghouri, an Agentic AI Full Stack Developer with a passion for
-            building intelligent, autonomous web applications. I work as a developer
-            and freelancer, specializing in modern web solutions powered by cutting-edge
-            AI technologies. I combine strong full-stack development skills with deep
-            expertise in AI agent frameworks and APIs to deliver smart, scalable digital
-            products. I build Personal AI Employees — custom AI agents designed to
-            automate tasks, handle workflows, and work autonomously on behalf of
-            individuals and businesses. I also develop intelligent Chatbots for websites
-            — custom conversational AI assistants that engage users, answer queries, and
-            enhance the overall user experience — making businesses smarter and more
-            responsive 24/7.
+            {bioWords.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 6 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.25, delay: 0.3 + i * 0.045 }}
+                className="inline-block mr-[0.3em]"
+              >
+                {word}
+              </motion.span>
+            ))}
           </p>
-        </motion.div>
+        </div>
 
         {/* Stat cards — stagger slide up */}
         <div className="flex flex-col gap-3">
