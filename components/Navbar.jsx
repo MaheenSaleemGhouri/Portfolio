@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { label: 'about',  href: '#about'    },
@@ -9,7 +10,8 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled,   setScrolled]   = useState(false)
+  const [menuOpen,   setMenuOpen]   = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -18,6 +20,7 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (id) => {
+    setMenuOpen(false)
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -27,7 +30,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || menuOpen
           ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border-default'
           : 'bg-transparent'
       }`}
@@ -40,7 +43,8 @@ export default function Navbar() {
           Maheen.dev
         </button>
 
-        <div className="flex items-center gap-6">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map(link => (
             <button
               key={link.label}
@@ -65,7 +69,53 @@ export default function Navbar() {
             hire me →
           </motion.button>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden text-tx-muted hover:text-accent-purple transition-colors"
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {/* Mobile dropdown menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden bg-bg-primary/95 backdrop-blur-md border-b border-border-default"
+          >
+            <div className="flex flex-col px-6 py-4 gap-4">
+              {navLinks.map((link, i) => (
+                <motion.button
+                  key={link.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => scrollTo(link.href)}
+                  className="text-left text-tx-muted hover:text-accent-purple text-sm font-mono transition-colors duration-200"
+                >
+                  {link.label}
+                </motion.button>
+              ))}
+              <motion.button
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.05 }}
+                onClick={() => scrollTo('#contact')}
+                className="w-fit text-accent-purple border border-accent-purple/40 text-xs font-mono px-4 py-2 rounded-full mt-1"
+              >
+                hire me →
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
