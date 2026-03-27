@@ -37,7 +37,7 @@ function SkillCard({ skill, index, inView }) {
       transition={{ duration: 0.35, ease: 'easeOut', delay: index * 0.04 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="bg-bg-surface border border-border-default rounded-xl p-4 flex flex-col items-center gap-2 cursor-default transition-colors duration-200 hover:border-opacity-60"
+      className="bg-bg-surface border border-border-default rounded-3xl p-5 flex flex-col items-center gap-3 cursor-default transition-colors duration-200 hover:border-opacity-60"
       style={{
         boxShadow: hovered ? `0 0 18px ${skill.glow}` : 'none',
         borderColor: hovered ? skill.color + '60' : undefined,
@@ -68,7 +68,7 @@ export default function Skills() {
           text="// skills & tools"
           className="text-[10px] text-tx-faint tracking-[3px] uppercase font-mono mb-6"
         />
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4">
           {skills.map((skill, i) => (
             <SkillCard key={skill.name} skill={skill} index={i} inView={inView} />
           ))}
