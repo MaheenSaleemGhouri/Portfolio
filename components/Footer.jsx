@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-bg-footer px-6 py-5">
+    <footer className="bg-bg-footer px-4 md:px-6 py-4 md:py-5">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
         <span className="text-tx-muted text-xs font-body">© 2025 Maheen Ghouri</span>
         <div className="flex gap-5">

@@ -63,23 +63,23 @@ export default function Contact() {
     setSubmitted(true)
   }
 
-  const inputClass = "w-full bg-bg-surface focus:outline-none text-tx-primary placeholder-tx-muted text-sm font-body px-4 py-3 rounded-xl transition-colors"
+  const inputClass = "w-full bg-bg-surface focus:outline-none text-tx-primary placeholder-tx-muted text-xs md:text-sm font-body px-3 md:px-4 py-2.5 md:py-3 rounded-xl transition-colors"
 
   return (
-    <div ref={ref} id="contact" className="py-20 px-6">
+    <div ref={ref} id="contact" className="py-14 md:py-20 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <span className="font-syne font-extrabold text-6xl text-accent-emerald/20">06/</span>
-          <h2 className="font-heading font-light text-3xl text-tx-primary mt-2 mb-2">
+          <span className="font-syne font-extrabold text-4xl md:text-6xl text-accent-emerald/20">06/</span>
+          <h2 className="font-heading font-light text-2xl md:text-3xl text-tx-primary mt-1 md:mt-2 mb-1 md:mb-2">
             Let&apos;s Build <span className="text-accent-emerald">Together</span>
           </h2>
-          <p className="text-tx-muted text-sm font-body font-light mb-10">Have a project in mind? Let&apos;s talk.</p>
+          <p className="text-tx-muted text-xs md:text-sm font-body font-light mb-8 md:mb-10">Have a project in mind? Let&apos;s talk.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 
             {/* Left — heading + platform cards */}
             <div>
@@ -90,8 +90,8 @@ export default function Contact() {
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.12 }}
                     className="flex items-center gap-3 bg-bg-surface rounded-xl px-4 py-3 transition-colors duration-200 group hover:bg-bg-surface/80"
                   >
