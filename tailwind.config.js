@@ -9,31 +9,25 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          primary:  '#0A0A0F',
-          surface:  '#0F0F1A',
-          elevated: '#161625',
+          primary:  '#0B0D0E',
+          surface:  '#1A2024',
+          elevated: '#111619',
+          footer:   '#080A0B',
         },
         accent: {
-          purple: '#A78BFA',
-          green:  '#34D399',
-          orange: '#FB923C',
-          blue:   '#60A5FA',
+          emerald: '#4ECCA3',
+          gold:    '#E8C070',
         },
         tx: {
           primary: '#FFFFFF',
-          muted:   '#A0A0C0',
-          faint:   '#6B6B8A',
-          ghost:   '#3A3A55',
-        },
-        border: {
-          default: '#1C1C28',
-          purple:  '#A78BFA33',
-          green:   '#34D39933',
+          body:    '#D0D8E0',
+          muted:   '#8090A0',
         },
       },
       fontFamily: {
-        syne: ['Syne', 'sans-serif'],
-        mono: ['"DM Mono"', 'monospace'],
+        heading: ['"Cormorant Garamond"', 'serif'],
+        body:    ['Inter', 'sans-serif'],
+        syne:    ['Syne', 'sans-serif'],
       },
     },
   },

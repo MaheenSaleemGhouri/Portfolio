@@ -2,7 +2,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Linkedin, Github, ArrowUpRight } from 'lucide-react'
-import TypewriterLabel from './TypewriterLabel'
 
 const FiverrIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -22,40 +21,28 @@ const platforms = [
     desc: 'Connect with me professionally',
     url: 'https://linkedin.com/in/maheen-ghouri-811509308',
     icon: <Linkedin size={20} />,
-    color: 'text-accent-blue',
-    bg: 'bg-accent-blue/10',
-    glow: 'rgba(96,165,250,0.35)',
-    border: 'hover:border-accent-blue/50',
+    iconColor: '#0A66C2',
   },
   {
     name: 'GitHub',
     desc: 'Check out my code & projects',
     url: '#',
     icon: <Github size={20} />,
-    color: 'text-accent-purple',
-    bg: 'bg-accent-purple/10',
-    glow: 'rgba(167,139,250,0.35)',
-    border: 'hover:border-accent-purple/50',
+    iconColor: '#E6EDF3',
   },
   {
     name: 'Fiverr',
     desc: 'Hire me for freelance projects',
     url: '#',
     icon: <FiverrIcon />,
-    color: 'text-accent-green',
-    bg: 'bg-accent-green/10',
-    glow: 'rgba(52,211,153,0.35)',
-    border: 'hover:border-accent-green/50',
+    iconColor: '#1DBF73',
   },
   {
     name: 'Upwork',
     desc: 'Work with me on Upwork',
     url: '#',
     icon: <UpworkIcon />,
-    color: 'text-accent-orange',
-    bg: 'bg-accent-orange/10',
-    glow: 'rgba(251,146,60,0.35)',
-    border: 'hover:border-accent-orange/50',
+    iconColor: '#14A800',
   },
 ]
 
@@ -76,103 +63,112 @@ export default function Contact() {
     setSubmitted(true)
   }
 
-  const inputClass = "w-full bg-bg-surface border border-border-default focus:border-accent-purple/50 outline-none text-tx-primary placeholder-tx-faint text-xs font-mono px-4 py-3 rounded-lg transition-colors"
+  const inputClass = "w-full bg-bg-surface focus:outline-none text-tx-primary placeholder-tx-muted text-sm font-body px-4 py-3 rounded-xl transition-colors"
 
   return (
-    <div ref={ref} id="contact" className="py-20 px-6 border-t border-border-default">
-      <div className="max-w-2xl mx-auto">
+    <div ref={ref} id="contact" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <TypewriterLabel
-            text="// contact"
-            className="text-[10px] text-tx-faint tracking-[3px] uppercase font-mono mb-3"
-          />
-          <h2 className="font-syne font-extrabold text-3xl text-tx-primary mb-2">
-            Let&apos;s Build <span className="text-accent-purple">Together</span>
+          <span className="font-syne font-extrabold text-6xl text-accent-emerald/20">06/</span>
+          <h2 className="font-heading font-light text-3xl text-tx-primary mt-2 mb-2">
+            Let&apos;s Build <span className="text-accent-emerald">Together</span>
           </h2>
-          <p className="text-tx-muted text-sm font-mono mb-8">Have a project in mind? Let&apos;s talk.</p>
+          <p className="text-tx-muted text-sm font-body font-light mb-10">Have a project in mind? Let&apos;s talk.</p>
 
-          {/* Platform cards — slide in from left with stagger */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-            {platforms.map((p, i) => (
-              <motion.a
-                key={i}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.12 }}
-                whileHover={{ boxShadow: `0 0 16px ${p.glow}` }}
-                className={`flex items-center gap-3 bg-bg-surface border border-border-default ${p.border} rounded-xl px-4 py-3 transition-colors duration-200 group`}
-              >
-                <div className={`w-9 h-9 ${p.bg} ${p.color} rounded-lg flex items-center justify-center shrink-0`}>
-                  {p.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className={`font-syne font-bold text-sm ${p.color}`}>{p.name}</p>
-                  <p className="text-tx-faint text-[10px] font-mono truncate">{p.desc}</p>
-                </div>
-                {/* Arrow moves right on hover */}
-                <motion.div
-                  className="shrink-0"
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ArrowUpRight size={14} className="text-tx-faint group-hover:text-tx-muted transition-colors" />
-                </motion.div>
-              </motion.a>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          {/* Contact form */}
-          {submitted ? (
-            <div className="bg-accent-green/10 border border-accent-green/30 rounded-xl p-6 text-center">
-              <p className="text-accent-green font-mono text-sm">Message sent! I&apos;ll get back to you soon.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  className={inputClass}
-                  placeholder="your name"
-                  value={form.name}
-                  onChange={e => setForm({ ...form, name: e.target.value })}
-                />
-                <input
-                  className={inputClass}
-                  type="email"
-                  placeholder="your email"
-                  value={form.email}
-                  onChange={e => setForm({ ...form, email: e.target.value })}
-                />
+            {/* Left — heading + platform cards */}
+            <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                {platforms.map((p, i) => (
+                  <motion.a
+                    key={i}
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * 0.12 }}
+                    className="flex items-center gap-3 bg-bg-surface rounded-xl px-4 py-3 transition-colors duration-200 group hover:bg-bg-surface/80"
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ color: p.iconColor }}
+                    >
+                      {p.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-heading font-normal text-sm text-tx-primary">{p.name}</p>
+                      <p className="text-tx-muted text-xs font-body truncate">{p.desc}</p>
+                    </div>
+                    <ArrowUpRight size={14} className="text-tx-muted group-hover:text-accent-emerald transition-colors shrink-0" />
+                  </motion.a>
+                ))}
               </div>
-              <input
-                className={inputClass}
-                placeholder="subject"
-                value={form.subject}
-                onChange={e => setForm({ ...form, subject: e.target.value })}
-              />
-              <textarea
-                className={inputClass}
-                placeholder="your message..."
-                rows={5}
-                style={{ resize: 'none' }}
-                value={form.message}
-                onChange={e => setForm({ ...form, message: e.target.value })}
-              />
-              {error && <p className="text-red-400 text-xs font-mono">{error}</p>}
-              <button
-                type="submit"
-                className="w-full bg-accent-purple text-bg-primary text-xs font-mono font-medium py-3 rounded-lg hover:opacity-90 transition-opacity"
-              >
-                send message →
-              </button>
-            </form>
-          )}
+
+              {/* Contact form */}
+              {submitted ? (
+                <div className="rounded-xl p-6 text-center" style={{ background: 'rgba(78,204,163,0.1)' }}>
+                  <p className="text-accent-emerald font-body text-sm">Message sent! I&apos;ll get back to you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input
+                      className={inputClass}
+                      placeholder="your name"
+                      value={form.name}
+                      onChange={e => setForm({ ...form, name: e.target.value })}
+                    />
+                    <input
+                      className={inputClass}
+                      type="email"
+                      placeholder="your email"
+                      value={form.email}
+                      onChange={e => setForm({ ...form, email: e.target.value })}
+                    />
+                  </div>
+                  <input
+                    className={inputClass}
+                    placeholder="subject"
+                    value={form.subject}
+                    onChange={e => setForm({ ...form, subject: e.target.value })}
+                  />
+                  <textarea
+                    className={inputClass}
+                    placeholder="your message..."
+                    rows={5}
+                    style={{ resize: 'none' }}
+                    value={form.message}
+                    onChange={e => setForm({ ...form, message: e.target.value })}
+                  />
+                  {error && <p className="text-red-400 text-xs font-body">{error}</p>}
+                  <button
+                    type="submit"
+                    className="w-full bg-accent-emerald text-bg-primary text-sm font-body font-medium py-3 rounded-xl hover:opacity-90 transition-opacity"
+                  >
+                    send message
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Right — large decorative text */}
+            <div className="hidden md:flex items-center justify-center">
+              <div className="text-right">
+                <p className="font-heading font-light text-7xl text-tx-primary/5 leading-tight">
+                  Let&apos;s<br/>
+                  Work<br/>
+                  Together
+                </p>
+              </div>
+            </div>
+
+          </div>
         </motion.div>
       </div>
     </div>

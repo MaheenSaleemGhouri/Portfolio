@@ -31,16 +31,16 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || menuOpen
-          ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border-default'
+          ? 'bg-bg-primary/80 backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <button
           onClick={() => scrollTo('#hero')}
-          className="font-syne font-extrabold text-accent-purple text-lg tracking-tight"
+          className="font-heading font-light text-tx-primary text-xl tracking-tight"
         >
-          Maheen.dev
+          Maheen Ghouri
         </button>
 
         {/* Desktop nav */}
@@ -49,30 +49,24 @@ export default function Navbar() {
             <button
               key={link.label}
               onClick={() => scrollTo(link.href)}
-              className="relative text-tx-muted hover:text-accent-purple text-xs font-mono transition-colors duration-200 pb-0.5 group"
+              className="relative text-tx-muted hover:text-accent-emerald text-sm font-body font-light transition-colors duration-200 pb-0.5 group"
             >
               {link.label}
-              <span className="absolute bottom-0 left-0 h-px bg-accent-purple w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+              <span className="absolute bottom-0 left-0 h-px bg-accent-emerald w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
             </button>
           ))}
 
-          <motion.button
+          <button
             onClick={() => scrollTo('#contact')}
-            className="text-accent-purple border border-accent-purple/40 text-xs font-mono px-4 py-2 rounded-full"
-            whileHover={{
-              boxShadow: '0 0 14px rgba(167,139,250,0.45)',
-              borderColor: 'rgba(167,139,250,0.9)',
-              backgroundColor: 'rgba(167,139,250,0.1)',
-            }}
-            transition={{ duration: 0.2 }}
+            className="text-accent-emerald border border-accent-emerald/40 text-sm font-body px-5 py-2 rounded-full hover:bg-accent-emerald/10 transition-colors duration-200"
           >
-            hire me →
-          </motion.button>
+            Hire Me
+          </button>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-tx-muted hover:text-accent-purple transition-colors"
+          className="md:hidden text-tx-muted hover:text-accent-emerald transition-colors"
           onClick={() => setMenuOpen(o => !o)}
           aria-label="Toggle menu"
         >
@@ -88,7 +82,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden bg-bg-primary/95 backdrop-blur-md border-b border-border-default"
+            className="md:hidden overflow-hidden bg-bg-primary/95 backdrop-blur-md"
           >
             <div className="flex flex-col px-6 py-4 gap-4">
               {navLinks.map((link, i) => (
@@ -98,7 +92,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => scrollTo(link.href)}
-                  className="text-left text-tx-muted hover:text-accent-purple text-sm font-mono transition-colors duration-200"
+                  className="text-left text-tx-muted hover:text-accent-emerald text-sm font-body transition-colors duration-200"
                 >
                   {link.label}
                 </motion.button>
@@ -108,9 +102,9 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
                 onClick={() => scrollTo('#contact')}
-                className="w-fit text-accent-purple border border-accent-purple/40 text-xs font-mono px-4 py-2 rounded-full mt-1"
+                className="w-fit text-accent-emerald border border-accent-emerald/40 text-sm font-body px-5 py-2 rounded-full mt-1"
               >
-                hire me →
+                Hire Me
               </motion.button>
             </div>
           </motion.div>
