@@ -10,7 +10,7 @@ const quickChips = [
 
 export default function ChatbotWindow({
   isOpen, messages, input, setInput,
-  isLoading, sendMessage, handleKeyDown,
+  isLoading, sendMessage, handleKeyDown, resetChat,
 }) {
   const bottomRef = useRef(null)
 
@@ -66,7 +66,7 @@ export default function ChatbotWindow({
             }}
           />
         </div>
-        <div>
+        <div className="flex-1">
           <p style={{ margin: 0, fontSize: '13px', fontWeight: 500, color: '#FFFFFF' }}>
             Maheen&apos;s AI Assistant
           </p>
@@ -74,6 +74,26 @@ export default function ChatbotWindow({
             Online &bull; Reply karta hai 24/7
           </p>
         </div>
+        <button
+          onClick={resetChat}
+          aria-label="Reset chat"
+          title="New chat"
+          className="shrink-0 flex items-center justify-center rounded-lg transition-colors duration-200 hover:bg-[rgba(78,204,163,0.1)]"
+          style={{
+            width: '32px',
+            height: '32px',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <svg width="15" height="15" fill="none" stroke="#8090A0" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 2v6h-6" />
+            <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+            <path d="M3 22v-6h6" />
+            <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+          </svg>
+        </button>
       </div>
 
       {/* Messages */}

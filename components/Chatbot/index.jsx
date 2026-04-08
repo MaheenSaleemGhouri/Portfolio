@@ -16,6 +16,7 @@ export default function Chatbot() {
         isLoading={chat.isLoading}
         sendMessage={chat.sendMessage}
         handleKeyDown={chat.handleKeyDown}
+        resetChat={chat.resetChat}
       />
       <ChatbotButton
         isOpen={chat.isOpen}

@@ -58,6 +58,17 @@ export default function useChatbot() {
     }
   }
 
+  const resetChat = () => {
+    setMessages([
+      {
+        role: 'assistant',
+        content: "Hi! I'm Maheen's AI assistant \u{1F44B} Ask me anything about her work, skills, or services!\n\nYa Roman Urdu mein pooch sakte hain — main samjhunga! \u{1F60A}",
+      },
+    ])
+    setInput('')
+    setIsLoading(false)
+  }
+
   return {
     isOpen, setIsOpen,
     messages,
@@ -65,5 +76,6 @@ export default function useChatbot() {
     isLoading,
     sendMessage,
     handleKeyDown,
+    resetChat,
   }
 }
