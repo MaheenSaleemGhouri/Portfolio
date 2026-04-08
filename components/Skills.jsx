@@ -57,34 +57,34 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <div ref={ref} className="py-20 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 items-start">
+    <div ref={ref} className="py-14 md:py-20 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Left — section heading */}
-        <div>
-          <span className="font-syne font-extrabold text-6xl text-accent-emerald/20">03/</span>
-          <h2 className="font-heading font-light text-3xl text-tx-primary mt-2">Tech Stack</h2>
+        {/* Section heading — always on top on mobile */}
+        <div className="mb-8 md:mb-0 md:float-left md:w-[280px] md:mr-12">
+          <span className="font-syne font-extrabold text-4xl md:text-6xl text-accent-emerald/20">03/</span>
+          <h2 className="font-heading font-light text-2xl md:text-3xl text-tx-primary mt-1 md:mt-2">Tech Stack</h2>
         </div>
 
-        {/* Right — skill groups */}
-        <div className="flex flex-col gap-8">
+        {/* Skill groups */}
+        <div className="flex flex-col gap-6 md:gap-8 md:overflow-hidden">
           {groups.map((group, gi) => (
             <div key={group.label}>
-              <p className="text-tx-muted text-xs font-body tracking-widest uppercase mb-3">{group.label}</p>
-              <div className="flex flex-wrap gap-2">
+              <p className="text-tx-muted text-[10px] md:text-xs font-body tracking-widest uppercase mb-2 md:mb-3">{group.label}</p>
+              <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {group.skills.map((skill, si) => (
                   <motion.div
                     key={skill.name}
                     initial={{ opacity: 0, y: 12, scale: 0.9 }}
                     animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                     transition={{ duration: 0.3, ease: 'easeOut', delay: gi * 0.1 + si * 0.04 }}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-body"
+                    className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-body"
                     style={{
                       color: group.chipStyle.color,
                       background: group.chipStyle.bg,
                     }}
                   >
-                    <skill.Icon size={14} />
+                    <skill.Icon size={12} className="md:w-[14px] md:h-[14px]" />
                     {skill.name}
                   </motion.div>
                 ))}
@@ -93,6 +93,7 @@ export default function Skills() {
           ))}
         </div>
 
+        <div className="clear-both" />
       </div>
     </div>
   )

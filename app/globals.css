@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+  width: 100%;
 }
 
 ::selection {
@@ -45,4 +47,29 @@ body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(8px); }
+}
+
+.md\:animate-float {
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  .md\:animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  .md\:animate-spin {
+    animation: spin 8s linear infinite;
+  }
+}
+
+/* Disable heavy animations on mobile for stability */
+@media (max-width: 767px) {
+  .animate-spin {
+    animation: none !important;
+  }
 }
