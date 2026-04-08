@@ -14,7 +14,7 @@ export default function ScrollProgress() {
   }, [])
   return (
     <div
-      className="fixed top-0 left-0 h-[3px] bg-accent-purple z-[100] transition-none pointer-events-none"
+      className="fixed top-0 left-0 h-[3px] bg-accent-emerald z-[100] transition-none pointer-events-none"
       style={{ width: `${width}%` }}
     />
   )
