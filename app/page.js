@@ -7,6 +7,7 @@ import Projects from '@/components/Projects'
 import HireMe   from '@/components/HireMe'
 import Contact  from '@/components/Contact'
 import Footer   from '@/components/Footer'
+import Chatbot  from '@/components/Chatbot'
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <section id="hireme"><HireMe /></section>
       <section id="contact"><Contact /></section>
       <Footer />
+      <Chatbot />
     </main>
   )
 }
