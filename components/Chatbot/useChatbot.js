@@ -6,7 +6,7 @@ export default function useChatbot() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Maheen's AI assistant \u{1F44B} Ask me anything about her work, skills, or services!\n\nYa Roman Urdu mein pooch sakte hain — main samjhunga! \u{1F60A}",
+      content: "Hi! I'm Maheen's AI assistant \u{1F44B} Ask me anything about her work, skills, or services!",
     },
   ])
   const [input, setInput] = useState('')
@@ -62,7 +62,7 @@ export default function useChatbot() {
     setMessages([
       {
         role: 'assistant',
-        content: "Hi! I'm Maheen's AI assistant \u{1F44B} Ask me anything about her work, skills, or services!\n\nYa Roman Urdu mein pooch sakte hain — main samjhunga! \u{1F60A}",
+        content: "Hi! I'm Maheen's AI assistant \u{1F44B} Ask me anything about her work, skills, or services!",
       },
     ])
     setInput('')

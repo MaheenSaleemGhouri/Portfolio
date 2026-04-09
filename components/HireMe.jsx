@@ -1,6 +1,33 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
+
+const stats = [
+  { label: 'projects done', value: '3+',  numPart: 3, suffix: '+' },
+  { label: 'status',        value: 'active',  numPart: null },
+  { label: 'open for',      value: 'freelance', numPart: null },
+]
+
+function CountStat({ stat, inView }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!inView || stat.numPart === null) return
+    let c = 0
+    const interval = setInterval(() => {
+      c += 1
+      setCount(c)
+      if (c >= stat.numPart) clearInterval(interval)
+    }, 180)
+    return () => clearInterval(interval)
+  }, [inView, stat.numPart])
+
+  return (
+    <span className="font-syne font-extrabold text-lg md:text-xl text-accent-emerald">
+      {stat.numPart !== null ? `${count}${stat.suffix}` : stat.value}
+    </span>
+  )
+}
 
 const services = [
   'Full Stack Web Application Development',
@@ -25,10 +52,25 @@ export default function HireMe() {
   return (
     <div ref={ref} className="py-14 md:py-20 px-4 md:px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <span className="font-syne font-extrabold text-4xl md:text-6xl text-accent-emerald/20">05/</span>
-        <h2 className="font-heading font-light text-2xl md:text-3xl text-tx-primary mt-1 md:mt-2 mb-8 md:mb-12">
+        <h2 className="font-heading font-bold text-2xl md:text-3xl text-tx-primary mb-6 md:mb-8">
           Available For Your Project
         </h2>
+
+        {/* Stat cards */}
+        <div className="flex flex-wrap gap-3 mb-8 md:mb-12">
+          {stats.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 * i }}
+              className="bg-bg-surface rounded-xl px-4 md:px-5 py-3 md:py-4 flex items-center gap-3 md:gap-4 flex-1 min-w-[140px]"
+            >
+              <span className="text-tx-muted text-xs font-body">{s.label}</span>
+              <CountStat stat={s} inView={inView} />
+            </motion.div>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 

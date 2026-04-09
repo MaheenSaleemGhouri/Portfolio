@@ -54,14 +54,11 @@ body {
   50% { transform: translateY(8px); }
 }
 
-.md\:animate-float {
-  animation: none;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 @media (min-width: 768px) {
-  .md\:animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
   .md\:animate-spin {
     animation: spin 8s linear infinite;
   }
