@@ -73,8 +73,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut' }}
         >
-          <span className="font-syne font-extrabold text-4xl md:text-6xl text-accent-emerald/20">06/</span>
-          <h2 className="font-heading font-light text-2xl md:text-3xl text-tx-primary mt-1 md:mt-2 mb-1 md:mb-2">
+          <h2 className="font-heading font-bold text-2xl md:text-3xl text-tx-primary mb-1 md:mb-2">
             Let&apos;s Build <span className="text-accent-emerald">Together</span>
           </h2>
           <p className="text-tx-muted text-xs md:text-sm font-body font-light mb-8 md:mb-10">Have a project in mind? Let&apos;s talk.</p>

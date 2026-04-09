@@ -192,7 +192,7 @@ export default function ChatbotWindow({
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Kuch poochein ya type your question..."
+          placeholder="Ask about her..."
           disabled={isLoading}
           className="flex-1 outline-none"
           style={{

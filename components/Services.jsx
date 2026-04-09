@@ -79,8 +79,7 @@ export default function Services() {
   return (
     <div ref={ref} className="py-14 md:py-20 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
-        <span className="font-syne font-extrabold text-4xl md:text-6xl text-accent-emerald/20">02/</span>
-        <h2 className="font-heading font-light text-2xl md:text-3xl text-tx-primary mt-1 md:mt-2 mb-8 md:mb-10">What I Build</h2>
+        <h2 className="font-heading font-bold text-2xl md:text-3xl text-tx-primary mb-8 md:mb-10">What I Build</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {services.map((svc, i) => (
             <ServiceCard key={i} svc={svc} i={i} inView={inView} />

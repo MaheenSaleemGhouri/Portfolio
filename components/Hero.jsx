@@ -84,7 +84,7 @@ export default function Hero() {
             </h1>
 
             {/* Word-stagger subtitle */}
-            <p className="text-tx-muted text-xs md:text-sm leading-relaxed max-w-md mb-6 md:mb-8 font-body font-light italic">
+            <p className="text-tx-muted text-xs md:text-sm leading-relaxed max-w-md mb-6 md:mb-8 font-body font-semibold italic">
               {subtitleWords.map((word, i) => (
                 <motion.span
                   key={i}
@@ -131,7 +131,7 @@ export default function Hero() {
             animate="show"
             className="flex justify-center md:justify-end order-1 md:order-2"
           >
-            <div className="relative p-2 md:p-3 md:animate-float">
+            <div className="relative p-2 md:p-3 animate-float">
               <div
                 className="absolute inset-0 rounded-full border border-dashed border-accent-emerald/40 md:animate-spin"
                 style={{
