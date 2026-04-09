@@ -139,12 +139,12 @@ export default function Hero() {
                   boxShadow: '0 0 18px rgba(78,204,163,0.2)',
                 }}
               />
-              <div className="w-44 h-44 md:w-72 md:h-72 rounded-full relative overflow-hidden" style={{ border: '2px solid rgba(78,204,163,0.3)' }}>
+              <div className="w-44 h-44 md:w-72 md:h-72 rounded-full relative overflow-hidden" style={{ border: '2px solid rgba(78,204,163,0.3)', background: '#0B0D0E' }}>
                 <img
                   src="/image.png"
                   alt="Maheen Ghouri"
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: '50% 25%' }}
+                  style={{ objectPosition: '50% 30%', transform: 'scale(1.35)' }}
                 />
               </div>
             </div>
