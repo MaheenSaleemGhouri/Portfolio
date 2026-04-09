@@ -141,7 +141,7 @@ export default function Hero() {
               />
               <div className="w-44 h-44 md:w-72 md:h-72 rounded-full relative overflow-hidden" style={{ border: '2px solid rgba(78,204,163,0.3)' }}>
                 <img
-                  src="/profile.png"
+                  src="/image.png"
                   alt="Maheen Ghouri"
                   className="w-full h-full object-cover"
                   style={{ objectPosition: '50% 25%' }}
