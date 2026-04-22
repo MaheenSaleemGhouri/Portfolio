@@ -2,12 +2,12 @@ export default function Footer() {
   return (
     <footer className="bg-bg-footer px-4 md:px-6 py-4 md:py-5">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-        <span className="text-tx-muted text-xs font-body">© 2025 Maheen Ghouri</span>
+        <span className="text-tx-muted text-xs font-body">© 2024 Maheen Ghouri</span>
         <div className="flex gap-5">
           {[
-            { label: 'linkedin', href: '#' },
-            { label: 'github',   href: '#' },
-            { label: 'upwork',   href: '#' },
+            { label: 'linkedin', href: 'https://www.linkedin.com/in/maheen-ghouri-811509308' },
+            { label: 'github',   href: 'https://github.com/MaheenSaleemGhouri' },
+            { label: 'fiverr',   href: 'https://www.fiverr.com/maheen_ghouri_2/buying?source=avatar_menu_profile' },
           ].map(link => (
             <a
               key={link.label}
