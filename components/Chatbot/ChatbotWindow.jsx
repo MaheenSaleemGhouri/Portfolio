@@ -71,7 +71,7 @@ export default function ChatbotWindow({
             Maheen&apos;s AI Assistant
           </p>
           <p style={{ margin: 0, fontSize: '11px', color: '#4ECCA3' }}>
-            Online &bull; Reply karta hai 24/7
+            Online
           </p>
         </div>
         <button
