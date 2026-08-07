@@ -26,14 +26,14 @@ const platforms = [
   {
     name: 'GitHub',
     desc: 'Check out my code & projects',
-    url: '#',
+    url: 'https://github.com/MaheenSaleemGhouri',
     icon: <Github size={20} />,
     iconColor: '#E6EDF3',
   },
   {
     name: 'Fiverr',
     desc: 'Hire me for freelance projects',
-    url: '#',
+    url: 'https://www.fiverr.com/maheen_ghouri_2/buying?source=avatar_menu_profile',
     icon: <FiverrIcon />,
     iconColor: '#1DBF73',
   },
